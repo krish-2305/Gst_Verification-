@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./database/vector_db:/app/database/vector_db
+    env_file:
+      - .env
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http app:8501
+    env_file:
+      - .env
+    depends_on:
+      - app
