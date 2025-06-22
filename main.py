@@ -9,10 +9,11 @@ from gst_verification.data_manager import load_all_data, save_all_data
 from rag_chatbot.rag_chain import run_chatbot
 
 # Load API Key and setup Gemini
-load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
+assert api_key is not None, "GOOGLE_API_KEY is not set in Railway!"
+
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel("gemini-2.0-flash")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Page configuration
 st.set_page_config(page_title="GST AI Verifier & Chatbot", layout="wide", initial_sidebar_state="expanded")
