@@ -10,10 +10,4 @@ services:
     env_file:
       - .env
 
-  ngrok:
-    image: ngrok/ngrok:latest
-    command: http app:8501
-    env_file:
-      - .env
-    depends_on:
-      - app
+ 
