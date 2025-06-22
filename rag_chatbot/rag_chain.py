@@ -35,7 +35,11 @@ def run_chatbot():
     st.markdown("<h3 style='color:#FF0000;'>Chat with Invoice AI </h3>", unsafe_allow_html=True)
 
     # Initialize LLM
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
+    llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash",
+    temperature=0,
+    google_api_key=os.getenv("GOOGLE_API_KEY")
+)
 
     # Memory for chat history
     if "memory" not in st.session_state:

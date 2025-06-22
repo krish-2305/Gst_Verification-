@@ -11,7 +11,7 @@ RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
 def verify_gst(vendor_gstin):
     headers = {
         "content-type": "application/json",
-        "x-rapidapi-key": RAPIDAPI_KEY,
+        "x-rapidapi-key": os.getenv("RAPID_API_KEY"),
         "x-rapidapi-host": "gst-return-status.p.rapidapi.com"
     }
     gst_api_url = f"https://gst-return-status.p.rapidapi.com/free/gstin/{vendor_gstin}"
